@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: juice-shop
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    disk:
+      name: juice-shop-data
+      mountPath: /juice-shop/data
+      sizeGB: 1

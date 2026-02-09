@@ -723,7 +723,7 @@ export async function start (readyCallback?: () => void) {
 
   metricsUpdateLoop = Metrics.updateLoop() // vuln-code-snippet neutral-line exposedMetricsChallenge
 
-  server.listen(port, () => {
+  server.listen(Number(port), '0.0.0.0', () => {
     logger.info(colors.cyan(`Server listening on port ${colors.bold(`${port}`)}`))
     startupGauge.set({ task: 'ready' }, (Date.now() - startTime) / 1000)
     if (process.env.BASE_PATH !== '') {
